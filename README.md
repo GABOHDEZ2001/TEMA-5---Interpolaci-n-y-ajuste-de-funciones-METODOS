@@ -1,1 +1,1 @@
-# TEMA-5---Interpolaci-n-y-ajuste-de-funciones-METODOS
+# TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS

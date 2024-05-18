@@ -10,30 +10,51 @@ Desarrolla ejercicios que involucran cálculos numéricos para solución de prob
 ## Método De Interpolación De Lagrange.
 ### Descripcion 
 
+El método de interpolación de Lagrange es una técnica matemática utilizada para encontrar un polinomio que pase exactamente por un conjunto dado de puntos. Este método es especialmente útil cuando se tiene un conjunto de datos discretos y se desea construir un polinomio que los describa de manera precisa. 
 trapecio para calcular el área bajo la curva.
 
 ### Pseudocódigo 
 ```
-Función MetodoTrapecio(a, b, n, f):
-    h = (b - a) / n
-    sum = 0.5 * (f(a) + f(b))
+// Definir el procedimiento principal
+Inicio
+    // Definir los valores de x y y
+    xValues <- [1.0, 3.0]
+    yValues <- [2.0, 4.0]
 
-    Para cada i de 1 a n-1:
-        x = a + i * h
-        sum += f(x)
+    // Definir el punto a interpolar
+    x <- 2.0
 
-    retornar h * sum
+    // Llamar a la función lagrange para obtener el valor interpolado
+    interpolatedValue <- lagrange(x, xValues, yValues)
 
-Función funcionEjemplo(x):
-    retornar x * x
+    // Mostrar el valor interpolado
+    Imprimir "El valor interpolado en x = " + x + " es " + interpolatedValue
+Fin
 
-a = 0 // Límite inferior de integración
-b = 2 // Límite superior de integración
-n = 100 // Número de trapecios
+// Definir la función lagrange que calcula el polinomio de Lagrange
+Función lagrange(x, xValues, yValues) Devuelve Real
+    // Inicializar el resultado
+    resultado <- 0
 
-integral = MetodoTrapecio(a, b, n, funcionEjemplo)
+    // Iterar sobre los valores de xValues
+    Para i desde 0 hasta longitud(xValues) - 1 hacer
+        // Inicializar el término de Lagrange para el i-ésimo valor
+        término <- yValues[i]
 
-Imprimir "La aproximación de la integral es: " + integral
+        // Calcular el término de Lagrange
+        Para j desde 0 hasta longitud(xValues) - 1 hacer
+            Si j != i entonces
+                término <- término * (x - xValues[j]) / (xValues[i] - xValues[j])
+            FinSi
+        FinPara
+
+        // Sumar el término al resultado
+        resultado <- resultado + término
+    FinPara
+
+    // Devolver el resultado final
+    Devolver resultado
+FinFunción
 
 ```
 
@@ -42,52 +63,48 @@ Imprimir "La aproximación de la integral es: " + integral
 - Implementacion en Python
 
 ```
-  def f(x):
-    # Define la función que deseas integrar
-    return x**2  # Ejemplo: x^2
+  def lagrange(x, x_values, y_values):
+    result = 0
+    for i in range(len(x_values)):
+        term = y_values[i]
+        for j in range(len(x_values)):
+            if j != i:
+                term *= (x - x_values[j]) / (x_values[i] - x_values[j])
+        result += term
+    return result
 
-def metodo_trapecio(a, b, n):
-    # Calcula el ancho de cada subintervalo
-    h = (b - a) / n
-    
-    # Inicializa la suma
-    suma = 0
-    
-    # Calcula la suma de las áreas de los trapecios
-    for i in range(1, n):
-        xi = a + i * h
-        suma += f(xi)
-    
-    # Aplica la fórmula del método del trapecio
-    resultado = h * (f(a) / 2 + f(b) / 2 + suma)
-    return resultado
+def main():
+    x_values = [1.0, 3.0]  # Valores de x
+    y_values = [2.0, 4.0]  # Valores de y
 
-# Ejemplo de uso
-a = 0  # Límite inferior
-b = 1  # Límite superior
-n = 1000  # Número de subintervalos
+    x = 2.0  # Punto a interpolar
 
-resultado = metodo_trapecio(a, b, n)
-print("Resultado de la integración usando el método del trapecio:", resultado)
+    interpolated_value = lagrange(x, x_values, y_values)
+    print(f"El valor interpolado en x = {x} es {interpolated_value}")
+
+if __name__ == "__main__":
+    main()
+
+
 
 ```
 
 
-
-
-        
-
 ### Ejercicios en java
 
-[Ejemplo 1](https://github.com/GABOHDEZ2001/PROBLEMARIOTEMA4METODOS/blob/main/T4-E2-Problemario/src/M%C3%A9todoDeTrapecio/MetodoTrapecio1.java)
-
-[Ejemplo 2](https://github.com/GABOHDEZ2001/PROBLEMARIOTEMA4METODOS/blob/main/T4-E2-Problemario/src/M%C3%A9todoDeTrapecio/MetodoTrapecio2.java)
-
-[Ejemplo 3](https://github.com/GABOHDEZ2001/PROBLEMARIOTEMA4METODOS/blob/main/T4-E2-Problemario/src/M%C3%A9todoDeTrapecio/MetodoTrapecio3.java)
-
-[Ejemplo 4](https://github.com/GABOHDEZ2001/PROBLEMARIOTEMA4METODOS/blob/main/T4-E2-Problemario/src/M%C3%A9todoDeTrapecio/MetodoTrapecio4.java)
-
-[Ejemplo 5](https://github.com/GABOHDEZ2001/PROBLEMARIOTEMA4METODOS/blob/main/T4-E2-Problemario/src/M%C3%A9todoDeTrapecio/MetodoTrapecio5.java)
+[Ejemplo 1](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange1.java)
+[Ejemplo 2](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange2.java)
+[Ejemplo 3](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange3.java)
+[Ejemplo 4](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange4.java)
 
 
-==========================================================================================================================
+
+======================================================================================
+
+
+## Método De Interpolación De Newton.
+### Descripcion 
+
+El método de interpolación de Lagrange es una técnica matemática utilizada para encontrar un polinomio que pase exactamente por un conjunto dado de puntos. Este método es especialmente útil cuando se tiene un conjunto de datos discretos y se desea construir un polinomio que los describa de manera precisa. 
+trapecio para calcular el área bajo la curva.
+

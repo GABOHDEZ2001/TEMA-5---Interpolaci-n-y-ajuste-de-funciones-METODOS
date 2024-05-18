@@ -3,7 +3,7 @@ Desarrolla ejercicios que involucran cálculos numéricos para solución de prob
 
 # MetodosNumericosTema3Problemario
 
-### Gabriel Hernández Zaavala
+### Gabriel Hernández Zavala
 
 
 

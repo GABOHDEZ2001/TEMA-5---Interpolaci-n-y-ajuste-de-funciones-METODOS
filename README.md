@@ -93,8 +93,11 @@ if __name__ == "__main__":
 ### Ejercicios en java
 
 [Ejemplo 1](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange1.java)
+
 [Ejemplo 2](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange2.java)
+
 [Ejemplo 3](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange3.java)
+
 [Ejemplo 4](https://github.com/GABOHDEZ2001/TEMA-5---Interpolacion-y-ajuste-de-funciones-METODOS/blob/master/src/MetodoDeInterpolacionDeLagrange/MetodoDeInterpolacionDeLagrange4.java)
 
 
